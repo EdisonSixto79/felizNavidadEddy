@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Navidad</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #001d3d, #0d1b2a);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            margin: 0 10px;
+            font-size: 2rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            margin: 20px 15px;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #ffd700;
+            text-align: center;
+        }
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            animation: blink 3s infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Adaptación a pantallas pequeñas */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            footer {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>El Nacimiento de Jesús</h1>
+    <p>
+        "Y dará a luz un hijo, y llamarás su nombre Jesús, porque él salvará a su pueblo de sus pecados. Todo esto aconteció para que se cumpliese lo dicho por el Señor por medio del profeta, cuando dijo: He aquí, una virgen concebirá y dará a luz un hijo, y llamarán su nombre Emanuel, que traducido es: Dios con nosotros."  
+        <br><br>
+        <strong>Mateo 1:21-23</strong>
+    </p>
+    <footer>Que el verdadero significado de la Navidad llene sus corazones de paz y esperanza.</footer>
+    <div class="stars" id="stars"></div>
+
+    <script>
+        const starContainer = document.getElementById('stars');
+        const createStar = () => {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            starContainer.appendChild(star);
+
+            setTimeout(() => star.remove(), 6000);
+        };
+
+        setInterval(createStar, 150);
+    </script>
+</body>
+</html>
